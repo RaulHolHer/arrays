@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"sort"
 )
 
 func main() {
@@ -55,5 +56,46 @@ func main() {
 	map3["tres"] = 3 // comma is necessary
 
 	fmt.Println(map3)
+
+	map4 := make(map[string]int)
+	map4["R"] = 54
+	map4["P"] = 53
+	map4["M"] = 22
+	fmt.Println(map4)
+
+	// crear un slice para ordenar las clave de un map
+	keys := make([]string, 0, len(map4))
+	for k := range map4 {
+		keys = append(keys, k)
+	}
+	fmt.Println(keys)
+
+	// ordenar el slice
+	sort.Strings(keys) // uncomment this line to sort the keys
+	fmt.Println(keys)
+
+	// imprimir el map ordenado
+	for _, k := range keys {
+		fmt.Println(k, map4[k])
+	}
+	// bucles
+	for i := 0; i < 5; i++ {
+		//ftm.Println(i)
+		fmt.Print(i, " ") // imprime en la misma linea
+	}
+	fmt.Println("") // imprime una linea en blanco
+
+	// bucle de array1. len(array1) devuelve la longitud del array
+	for indice := 0; indice < len(array1); indice++ {
+		fmt.Println(array1[indice])
+	}
+	// bucle utilizando el range (rango)
+	for indice, valor := range array1 {
+		fmt.Println(indice, valor)
+	}
+	// bucle utilizando el range (rango) sin utilizar el indice
+	for _, valor := range array4 {
+		fmt.Println(valor)
+	}
 
 }
